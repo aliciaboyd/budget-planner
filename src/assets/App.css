@@ -1,42 +1,124 @@
 #root {
+  width: 100wh;
+  width: 100swh;
+}
+
+.container {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: auto;
+  padding-inline: 24px;
+}
+
+.content-body {
+  background-color: var(--white);
+  padding-block: 60px;
+  min-height: 50vh;
+  border-bottom: 1px solid var(--outline-grey);
+}
+
+header {
+  background-color: var(--blue);
+  width: 100%;
+  color: var(--white);
+}
+
+header > div.container {
+  padding: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header span {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+header label {
+  font-weight: 500;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+header select {
+  padding: 0.5rem 1rem;
+  color: var(--white);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  font-weight: 600;
+  border: 1px solid var(--lt-grey);
+}
+
+nav {
+  width: 100%;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--outline-grey);
+}
+
+nav > div {
+  display: flex;
+}
+
+nav a {
+  width: 50%;
+  height: 100%;
   text-align: center;
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  padding-block: 16px;
+  transition: 200ms ease-in-out;
+  border-bottom: 2px solid var(--outline-grey);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+nav a:hover {
+  background-color: var(--t-blue);
+  border-bottom: 2px solid var(--blue);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+footer {
+  text-align: center;
+  padding-block: 16px;
+  font-size: 14px;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--text);
+  position: relative;
+  font-weight: 600;
+}
+
+footer a::after {
+  position: absolute;
+  right: -15px;
+  content: url(./redirect-icon.png);
+}
+
+footer a,
+footer a::after {
+  transition: 200ms ease-in-out;
+}
+
+footer a:hover {
+  color: var(--blue);
+}
+
+footer a:hover::after {
+  right: -20px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding-inline: 0;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
