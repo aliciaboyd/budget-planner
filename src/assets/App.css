@@ -1,6 +1,7 @@
 #root {
   width: 100wh;
   width: 100swh;
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 .container {
@@ -14,6 +15,10 @@
   padding-block: 60px;
   min-height: 50vh;
   border-bottom: 1px solid var(--outline-grey);
+}
+
+.category:not(:last-of-type) {
+  margin-bottom: 2rem;
 }
 
 header {
@@ -76,6 +81,7 @@ nav a {
 nav a:hover {
   background-color: var(--t-blue);
   border-bottom: 2px solid var(--blue);
+  color: var(--blue);
 }
 
 footer {
@@ -89,25 +95,29 @@ footer a {
   color: var(--text);
   position: relative;
   font-weight: 600;
+  left: 0;
 }
 
 footer a::after {
   position: absolute;
-  right: -15px;
-  content: url(./redirect-icon.png);
+  opacity: 0;
+  right: -5px;
+  content: url(./redirect-icon.svg);
 }
 
 footer a,
 footer a::after {
-  transition: 200ms ease-in-out;
+  transition: 200ms ease-out;
 }
 
 footer a:hover {
   color: var(--blue);
+  left: -5px;
 }
 
 footer a:hover::after {
-  right: -20px;
+  opacity: 1;
+  right: -15px;
 }
 
 h1 {
@@ -115,6 +125,91 @@ h1 {
   font-weight: 600;
   color: var(--text-dark);
   margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-dark);
+  width: 100%;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--outline-grey);
+}
+
+.secondary-btn,
+.primary-btn {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 200ms ease-in-out;
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.secondary-btn {
+  background-color: transparent;
+  border: 1px solid var(--outline-grey);
+  color: var(--blue);
+}
+
+.delete:hover,
+.secondary-btn:hover {
+  background-color: var(--t-blue);
+  border-color: var(--blue);
+}
+
+.primary-btn {
+  background-color: var(--blue);
+  border: 1px solid var(--blue);
+  color: var(--white);
+}
+
+.primary-btn:hover {
+  color: var(--blue);
+  background-color: var(--t-blue);
+}
+
+.delete {
+  height: 2rem;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 1rem;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 500;
+  font-family: "Inter", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  transition: 200ms ease-in-out;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid var(--outline-grey);
+  color: var(--blue);
+}
+
+form {
+  padding-block: 48px;
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  height: 2rem;
+  font-size: 16px;
+  padding-inline: 0.5rem;
+  background-color: var(--bg-grey);
+  border: 1px solid var(--outline-grey);
+  border-radius: 4px;
+  color: var(--text-dark);
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  margin-block: 0.75rem;
 }
 
 @media (min-width: 1280px) {

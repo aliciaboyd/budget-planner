@@ -1,4 +1,4 @@
-function ExpenseTracker() {
+export default function ExpenseTracker() {
   return (
     <div>
       <h1>Expense tracker</h1>
@@ -6,5 +6,3 @@ function ExpenseTracker() {
     </div>
   );
 }
-
-export default ExpenseTracker;

@@ -10,17 +10,16 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <div class="content-body">
+
+        <main className="content-body">
           <div className="container">
             <Routes>
-              <Route path="/" element={<BudgetOverview />}></Route>
-              <Route
-                path="/expense-tracker"
-                element={<ExpenseTracker />}
-              ></Route>
+              <Route path="/" element={<BudgetOverview />} />
+              <Route path="/expense-tracker" element={<ExpenseTracker />} />
             </Routes>
           </div>
-        </div>
+        </main>
+
         <footer>
           <a href="https://github.com/aliciaboyd/budget-planner">Source Code</a>
         </footer>
