@@ -2,21 +2,15 @@ import { useState } from "react";
 import BudgetCategory from "./BudgetCategory";
 import BudgetSummary from "./BudgetSummary";
 
-function Category({ category, children }) {
-  return (
-    <div id="income" className="income category">
-      <h3>{category}</h3>
-      {children}
-    </div>
-  );
-}
-
 export default function BudgetForm() {
   const [incomeValues, setIncomeValues] = useState([]);
   const [savingsValues, setSavingsValues] = useState([]);
   const [variableValues, setVariableValues] = useState([]);
   const [fixedValues, setFixedValues] = useState([]);
   const [otherValues, setOtherValues] = useState([]);
+  let totalIncome;
+  let totalExpenses;
+  let totalSavings;
 
   function updateIncomeValues(x, y, z) {
     setIncomeValues([...incomeValues, { category: x, amount: y, id: z }]);
@@ -73,7 +67,7 @@ export default function BudgetForm() {
               <button
                 className="delete"
                 onClick={() => {
-                  setIncomeValues(
+                  setSavingsValues(
                     savingsValues.filter((obj) => {
                       return obj.id !== item.id;
                     })
@@ -96,7 +90,7 @@ export default function BudgetForm() {
               <button
                 className="delete"
                 onClick={() => {
-                  setIncomeValues(
+                  setFixedValues(
                     fixedValues.filter((obj) => {
                       return obj.id !== item.id;
                     })
@@ -119,7 +113,7 @@ export default function BudgetForm() {
               <button
                 className="delete"
                 onClick={() => {
-                  setIncomeValues(
+                  setVariableValues(
                     variableValues.filter((obj) => {
                       return obj.id !== item.id;
                     })
@@ -142,7 +136,7 @@ export default function BudgetForm() {
               <button
                 className="delete"
                 onClick={() => {
-                  setIncomeValues(
+                  setOtherValues(
                     otherValues.filter((obj) => {
                       return obj.id !== item.id;
                     })
@@ -155,7 +149,32 @@ export default function BudgetForm() {
           );
         })}
       </Category>
-      <BudgetSummary income={incomeValues}></BudgetSummary>
+
+      <BudgetSummary
+        income={totalIncome}
+        expenses={totalExpenses}
+        savings={totalSavings}
+      ></BudgetSummary>
     </div>
   );
 }
+
+function Category({ category, children }) {
+  return (
+    <div id="income" className="income category">
+      <h3>{category}</h3>
+      {children}
+    </div>
+  );
+}
+
+// function addCategory(categoryArr) {
+//   if (categoryArr === []) {
+//     return;
+//   }
+//   let total = 0;
+
+//   for (let i = 0; i > categoryArr.length; i++) {
+//     total = total + categoryArr.amount;
+//   }
+// }

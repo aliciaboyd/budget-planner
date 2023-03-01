@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 export default function Income({ setValues }) {
   const [textValue, setTextValue] = useState("");
-  const [numValue, setNumValue] = useState(null);
+  const [numValue, setNumValue] = useState(undefined);
 
   const addRow = () => {
     if (textValue === "" || numValue === null) {
