@@ -121,6 +121,10 @@ footer a::after {
   content: url(./redirect-icon.svg);
 }
 
+.active {
+  color: var(--blue);
+  border-color: var(--blue);
+}
 footer a,
 footer a::after {
   transition: 200ms ease-out;
@@ -287,8 +291,9 @@ input::placeholder {
 }
 
 .summary tr {
-  display: block;
+  display: flex;
   padding-bottom: 1rem;
+  justify-content: space-between;
 }
 
 .total-summary {
@@ -296,7 +301,7 @@ input::placeholder {
   text-align: center;
   padding-block: 1.5rem;
   border-top: 1px solid var(--outline-grey);
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 600;
 }
 

@@ -3,10 +3,10 @@ import { v4 as uuidv4 } from "uuid";
 
 export default function BudgetCategory({ setValues }) {
   const [textValue, setTextValue] = useState("");
-  const [numValue, setNumValue] = useState(undefined);
+  const [numValue, setNumValue] = useState(0);
 
   const addRow = () => {
-    if (textValue === "" || numValue === null) {
+    if (textValue === "") {
       return;
     }
 
@@ -34,7 +34,7 @@ export default function BudgetCategory({ setValues }) {
         type="number"
         placeholder="Amount"
         onChange={(e) => setNumValue(e.target.value)}
-        value={numValue}
+        value={numValue === 0 && textValue === "" ? "" : numValue}
       />
       <button className="secondary-btn">Add row</button>
     </form>

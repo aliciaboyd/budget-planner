@@ -170,7 +170,7 @@ function Category({ category, children }) {
   );
 }
 
-// function addCategory(categoryArr) {
+// function sumOfCategory(categoryArr) {
 //   if (categoryArr === []) {
 //     return;
 //   }

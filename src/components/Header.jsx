@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Header() {
+  const location = useLocation();
+
   return (
     <header>
       <div className="container">
@@ -17,8 +19,15 @@ function Header() {
       </div>
       <nav>
         <div className="container">
-          <Link to="/">Overview</Link>
-          <Link to="/expense-tracker">Expense Tracker</Link>
+          <Link to="/" className={location.pathname === "/" ? "active" : ""}>
+            Overview
+          </Link>
+          <Link
+            to="/expense-tracker"
+            className={location.pathname === "/expense-tracker" ? "active" : ""}
+          >
+            Expense Tracker
+          </Link>
         </div>
       </nav>
     </header>
