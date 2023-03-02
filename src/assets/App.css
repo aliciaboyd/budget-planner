@@ -31,6 +31,12 @@
   margin-bottom: 2rem;
 }
 
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
 header {
   background-color: var(--blue);
   width: 100%;
@@ -264,8 +270,43 @@ input::placeholder {
 .summary {
   border: 1px solid var(--outline-grey);
   border-radius: 0.25rem;
-  padding: 1rem;
-  margin-top: 4rem;
+  /* width: */
+  /* padding: 1rem; */
+  /* margin-top: 4rem; */
+}
+
+.summary h3 {
+  padding-block: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.summary table {
+  width: 90%;
+  margin: auto;
+}
+
+.summary tr {
+  display: block;
+  padding-bottom: 1rem;
+}
+
+.total-summary {
+  display: block;
+  text-align: center;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--outline-grey);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+@media (min-width: 720px) {
+  .two-col {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
 }
 
 @media (min-width: 1280px) {

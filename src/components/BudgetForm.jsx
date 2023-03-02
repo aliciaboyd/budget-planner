@@ -33,122 +33,124 @@ export default function BudgetForm() {
   }
 
   return (
-    <div>
-      <Category category="Income">
-        <BudgetCategory setValues={updateIncomeValues} />
-        {incomeValues.map((item) => {
-          return (
-            <div key={item.id} className="row-container">
-              <p>{item.category}</p>
-              <p>{item.amount}</p>
-              <button
-                className="delete"
-                onClick={() => {
-                  setIncomeValues(
-                    incomeValues.filter((obj) => {
-                      return obj.id !== item.id;
-                    })
-                  );
-                }}
-              >
-                -
-              </button>
-            </div>
-          );
-        })}
-      </Category>
-      <Category category="Savings">
-        <BudgetCategory setValues={updateSavingsValues} />
-        {savingsValues.map((item) => {
-          return (
-            <div key={item.id} className="row-container">
-              <p>{item.category}</p>
-              <p>{item.amount}</p>
-              <button
-                className="delete"
-                onClick={() => {
-                  setSavingsValues(
-                    savingsValues.filter((obj) => {
-                      return obj.id !== item.id;
-                    })
-                  );
-                }}
-              >
-                -
-              </button>
-            </div>
-          );
-        })}
-      </Category>
-      <Category category="Fixed Expenses">
-        <BudgetCategory setValues={updateFixedValues} />
-        {fixedValues.map((item) => {
-          return (
-            <div key={item.id} className="row-container">
-              <p>{item.category}</p>
-              <p>{item.amount}</p>
-              <button
-                className="delete"
-                onClick={() => {
-                  setFixedValues(
-                    fixedValues.filter((obj) => {
-                      return obj.id !== item.id;
-                    })
-                  );
-                }}
-              >
-                -
-              </button>
-            </div>
-          );
-        })}
-      </Category>
-      <Category category="Variable Expenses">
-        <BudgetCategory setValues={updateVariableValues} />
-        {variableValues.map((item) => {
-          return (
-            <div key={item.id} className="row-container">
-              <p>{item.category}</p>
-              <p>{item.amount}</p>
-              <button
-                className="delete"
-                onClick={() => {
-                  setVariableValues(
-                    variableValues.filter((obj) => {
-                      return obj.id !== item.id;
-                    })
-                  );
-                }}
-              >
-                -
-              </button>
-            </div>
-          );
-        })}
-      </Category>
-      <Category category="Other">
-        <BudgetCategory setValues={updateOtherValues} />
-        {otherValues.map((item) => {
-          return (
-            <div key={item.id} className="row-container">
-              <p>{item.category}</p>
-              <p>{item.amount}</p>
-              <button
-                className="delete"
-                onClick={() => {
-                  setOtherValues(
-                    otherValues.filter((obj) => {
-                      return obj.id !== item.id;
-                    })
-                  );
-                }}
-              >
-                -
-              </button>
-            </div>
-          );
-        })}
-      </Category>
+    <div className="two-col">
+      <div>
+        <Category category="Income">
+          <BudgetCategory setValues={updateIncomeValues} />
+          {incomeValues.map((item) => {
+            return (
+              <div key={item.id} className="row-container">
+                <p>{item.category}</p>
+                <p>{item.amount}</p>
+                <button
+                  className="delete"
+                  onClick={() => {
+                    setIncomeValues(
+                      incomeValues.filter((obj) => {
+                        return obj.id !== item.id;
+                      })
+                    );
+                  }}
+                >
+                  -
+                </button>
+              </div>
+            );
+          })}
+        </Category>
+        <Category category="Savings">
+          <BudgetCategory setValues={updateSavingsValues} />
+          {savingsValues.map((item) => {
+            return (
+              <div key={item.id} className="row-container">
+                <p>{item.category}</p>
+                <p>{item.amount}</p>
+                <button
+                  className="delete"
+                  onClick={() => {
+                    setSavingsValues(
+                      savingsValues.filter((obj) => {
+                        return obj.id !== item.id;
+                      })
+                    );
+                  }}
+                >
+                  -
+                </button>
+              </div>
+            );
+          })}
+        </Category>
+        <Category category="Fixed Expenses">
+          <BudgetCategory setValues={updateFixedValues} />
+          {fixedValues.map((item) => {
+            return (
+              <div key={item.id} className="row-container">
+                <p>{item.category}</p>
+                <p>{item.amount}</p>
+                <button
+                  className="delete"
+                  onClick={() => {
+                    setFixedValues(
+                      fixedValues.filter((obj) => {
+                        return obj.id !== item.id;
+                      })
+                    );
+                  }}
+                >
+                  -
+                </button>
+              </div>
+            );
+          })}
+        </Category>
+        <Category category="Variable Expenses">
+          <BudgetCategory setValues={updateVariableValues} />
+          {variableValues.map((item) => {
+            return (
+              <div key={item.id} className="row-container">
+                <p>{item.category}</p>
+                <p>{item.amount}</p>
+                <button
+                  className="delete"
+                  onClick={() => {
+                    setVariableValues(
+                      variableValues.filter((obj) => {
+                        return obj.id !== item.id;
+                      })
+                    );
+                  }}
+                >
+                  -
+                </button>
+              </div>
+            );
+          })}
+        </Category>
+        <Category category="Other">
+          <BudgetCategory setValues={updateOtherValues} />
+          {otherValues.map((item) => {
+            return (
+              <div key={item.id} className="row-container">
+                <p>{item.category}</p>
+                <p>{item.amount}</p>
+                <button
+                  className="delete"
+                  onClick={() => {
+                    setOtherValues(
+                      otherValues.filter((obj) => {
+                        return obj.id !== item.id;
+                      })
+                    );
+                  }}
+                >
+                  -
+                </button>
+              </div>
+            );
+          })}
+        </Category>
+      </div>
 
       <BudgetSummary
         income={totalIncome}

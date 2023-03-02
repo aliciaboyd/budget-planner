@@ -1,4 +1,6 @@
 export default function BudgetSummary({ income, expenses, savings }) {
+  let total = income - expenses - savings;
+
   return (
     <section className="summary">
       <h3>Summary</h3>
@@ -19,7 +21,7 @@ export default function BudgetSummary({ income, expenses, savings }) {
             </tr>
           </tbody>
         </table>
-        <p>${income - expenses - savings}</p>
+        <p class="total-summary">${isNaN(total) ? "0" : total}</p>
         {<span></span>}
       </div>
     </section>
