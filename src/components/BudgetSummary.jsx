@@ -1,16 +1,8 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useContext } from "react";
+import { CurrencyContext } from "../context/CurrencyContext";
 
-export default function BudgetSummary({ income, expenses, savings }) {
-  // let total = income - expenses - savings;
-
-  let incomeRef = useRef(null);
-
-  // useEffect(() => {
-  //   if (income === []) {
-  //     return;
-  //   }
-  //   incomeRef.current.value = sumOfCategory(income);
-  // }, [income]);
+export default function BudgetSummary(props) {
+  const symbol = useContext(CurrencyContext);
 
   return (
     <section className="summary">
@@ -22,34 +14,23 @@ export default function BudgetSummary({ income, expenses, savings }) {
               <td>Total income</td>
               {/* <td className="right">${income}</td> */}
               <td className="right">
-                $<span ref={incomeRef}></span>
+                {symbol}
+                <span></span>
               </td>
             </tr>
             <tr>
               <td>Total expenses</td>
-              <td className="right">${expenses}</td>
+              <td className="right">{symbol}</td>
             </tr>
             <tr>
               <td>Total savings</td>
-              <td className="right">${savings}</td>
+              <td className="right">{symbol}</td>
             </tr>
           </tbody>
         </table>
-        <p className="total-summary">$</p>
+        <p className="total-summary">{symbol}</p>
         {<span></span>}
       </div>
     </section>
   );
-}
-
-function sumOfCategory(categoryArr) {
-  let total = 0;
-
-  if (categoryArr !== []) {
-    for (let i = 0; i > categoryArr.length; i++) {
-      total = total + categoryArr.amount;
-    }
-  } else {
-    return total;
-  }
 }

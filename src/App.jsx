@@ -4,26 +4,40 @@ import Header from "./components/Header";
 import BudgetOverview from "./pages/BudgetOverview";
 import ExpenseTracker from "./pages/ExpenseTracker";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { CurrencyContext } from "./context/CurrencyContext";
 
 function App() {
+  const [currency, setCurrency] = useState("$");
+
+  useEffect(() => {
+    localStorage.getItem("currency") !== "null"
+      ? setCurrency(localStorage.getItem("currency"))
+      : setCurrency("$");
+  }, []);
+
   return (
     <BrowserRouter>
-      <div className="App">
-        <Header />
+      <CurrencyContext.Provider value={currency}>
+        <div className="App">
+          <Header currency={currency} setCurrency={setCurrency} />
 
-        <main className="content-body">
-          <div className="container">
-            <Routes>
-              <Route path="/" element={<BudgetOverview />} />
-              <Route path="/expense-tracker" element={<ExpenseTracker />} />
-            </Routes>
-          </div>
-        </main>
+          <main className="content-body">
+            <div className="container">
+              <Routes>
+                <Route path="/" element={<BudgetOverview />} />
+                <Route path="/tracker" element={<ExpenseTracker />} />
+              </Routes>
+            </div>
+          </main>
 
-        <footer>
-          <a href="https://github.com/aliciaboyd/budget-planner">Source Code</a>
-        </footer>
-      </div>
+          <footer>
+            <a href="https://github.com/aliciaboyd/budget-planner">
+              Source Code
+            </a>
+          </footer>
+        </div>
+      </CurrencyContext.Provider>
     </BrowserRouter>
   );
 }

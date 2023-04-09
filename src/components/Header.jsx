@@ -1,7 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
 
-function Header() {
+function Header(props) {
   const location = useLocation();
+
+  function updateCurrency(event) {
+    props.setCurrency(event.target.value);
+
+    event.target.value !== "--Select--" &&
+      localStorage.setItem("currency", event.target.value);
+  }
 
   return (
     <header>
@@ -9,24 +16,29 @@ function Header() {
         <span>Budget Planner</span>
         <div>
           <label htmlFor="currency">Currency:</label>
-          <select name="currency" id="currency">
-            <option value="">USD</option>
-            <option value="">CAD</option>
-            <option value="">AUD</option>
-            <option value="">EUR</option>
+          <select
+            name="currency"
+            id="currency"
+            onChange={(e) => updateCurrency(e)}
+          >
+            <option>--Select--</option>
+            <option value="$">USD</option>
+            <option value="$">CAD</option>
+            <option value="$">AUD</option>
+            <option value="€">EUR</option>
           </select>
         </div>
       </div>
       <nav>
         <div className="container">
           <Link to="/" className={location.pathname === "/" ? "active" : ""}>
-            Overview
+            Monthly Overview
           </Link>
           <Link
-            to="/expense-tracker"
-            className={location.pathname === "/expense-tracker" ? "active" : ""}
+            to="/tracker"
+            className={location.pathname === "/tracker" ? "active" : ""}
           >
-            Expense Tracker
+            Monthly Tracker
           </Link>
         </div>
       </nav>

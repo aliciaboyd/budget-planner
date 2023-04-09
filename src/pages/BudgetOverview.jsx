@@ -1,6 +1,7 @@
-import BudgetForm from "../components/BudgetForm";
+import MonthlyBudgetForm from "../components/MonthlyBudgetForm";
+import BudgetSummary from "../components/BudgetSummary";
 
-function BudgetOverview() {
+function BudgetOverview(props) {
   return (
     <main>
       <h1>Monthly Budget Overview</h1>
@@ -9,7 +10,10 @@ function BudgetOverview() {
         worksheet.
       </p>
       <div className="budget-overview">
-        <BudgetForm />
+        <div className="two-col">
+          <MonthlyBudgetForm currency={props.currency} />
+          <BudgetSummary currency={props.currency}></BudgetSummary>
+        </div>
       </div>
     </main>
   );
