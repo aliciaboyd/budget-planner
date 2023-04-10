@@ -8,7 +8,7 @@ export default function InputGroup(props) {
   function setAmount(event) {
     setItem({
       ...item,
-      amount: event.target.value,
+      amount: parseFloat(event.target.value),
     });
   }
 
