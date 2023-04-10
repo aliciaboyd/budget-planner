@@ -36,7 +36,7 @@ export default function BudgetCategory({ setValues }) {
         onChange={(e) => setNumValue(e.target.value)}
         value={numValue === 0 && textValue === "" ? "" : numValue}
       />
-      <button className="secondary-btn">Add row</button>
+      <button className="primary-btn">Add row</button>
     </form>
   );
 }

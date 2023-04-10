@@ -20,6 +20,20 @@
   padding-inline: 24px;
 }
 
+.wrapper-md {
+  min-height: 40vh;
+  max-width: 900px;
+  margin: auto;
+}
+
+.currency-selector {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: left;
+  gap: 4px;
+}
+
 .content-body {
   background-color: var(--white);
   padding-block: 60px;
@@ -79,6 +93,7 @@ nav {
 
 nav > div {
   display: flex;
+  align-items: end;
 }
 
 nav a {
@@ -89,7 +104,7 @@ nav a {
   text-decoration: none;
   color: var(--text);
   font-weight: 600;
-  padding-block: 16px;
+  padding: 1rem;
   transition: 200ms ease-in-out;
   border-bottom: 2px solid var(--outline-grey);
 }
@@ -141,14 +156,19 @@ footer a:hover::after {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 600;
   color: var(--text-dark);
   margin-bottom: 1rem;
 }
 
+h2 {
+  font-size: 1.25rem;
+  color: var(--text-dark);
+}
+
 h3 {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-dark);
   width: 100%;
@@ -233,10 +253,14 @@ input::placeholder {
 .input-group {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr auto;
+  grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
   margin-block: 0.75rem;
   transition: 200ms ease-in-out;
+}
+
+.input-group button {
+  grid-column: span 2;
 }
 
 .row-container:first-of-type {
@@ -274,9 +298,6 @@ input::placeholder {
 .summary {
   border: 1px solid var(--outline-grey);
   border-radius: 0.25rem;
-  /* width: */
-  /* padding: 1rem; */
-  /* margin-top: 4rem; */
 }
 
 .summary h3 {
@@ -303,6 +324,7 @@ input::placeholder {
   border-top: 1px solid var(--outline-grey);
   font-size: 3rem;
   font-weight: 600;
+  color: var(--text-dark);
 }
 
 .positive,
@@ -333,12 +355,74 @@ input::placeholder {
   background-color: rgba(233, 132, 8, 0.1);
 }
 
+.overview-options {
+  padding-block: 1rem;
+  text-align: center;
+}
+
+.expense-summary {
+  padding: 2rem;
+  border: 1px solid var(--outline-grey);
+  margin-block: 2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.expense-summary > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.expenses-col button {
+  justify-self: auto;
+}
+
+@media (min-width: 480px) {
+  .currency-selector {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .input-group {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 0.5rem;
+    margin-block: 0.75rem;
+    transition: 200ms ease-in-out;
+  }
+
+  .input-group button {
+    grid-column: span 1;
+  }
+}
+
+.total-amount {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
 @media (min-width: 720px) {
   .two-col {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 2rem;
     align-items: start;
+    justify-content: space-between;
+  }
+
+  .expenses-col button {
+    justify-self: end;
+  }
+
+  .overview-options {
+    text-align: right;
   }
 }
 

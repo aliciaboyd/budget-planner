@@ -1,9 +1,26 @@
-# budget-planner
+# Budget Planner
 
-Budget planner and expense tracker application.
+Budget planner and expense tracker application. Plan expenses with the budget overview page and track your monthly expenses using the expense tracker.
 
 ![Concept design of budget planner app](https://github.com/aliciaboyd/budget-planner/blob/main/preview.png?raw=true)
 
+Designed in Figma, created in React using Vite.
+
 ---
 
-Designed in [Figma](https://www.figma.com/proto/fBzNfL3nBqG6F4eu1INuiR/Budget-Overview-and-Expense-Tracker?page-id=14%3A1614&node-id=14%3A1615&viewport=1316%2C471%2C0.56&scaling=min-zoom), created using React with Vite.
+## Getting Started
+
+- Install with `npm install`
+- Start server with `npm run dev`
+
+---
+
+## To Do
+
+- ✅ Fields saved with local storage
+- ✅ Values to be added to calculation summary
+- ✅ Fix mobile styles (inputs, navigation)
+- ✅ Add summary to monthly overview page
+- 🔲 Add reset button to both pages
+- 🔲 Impliment D3.js or Chart.js for pie chart
+- 🔲 Add download to pdf option for overview

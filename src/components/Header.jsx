@@ -4,17 +4,19 @@ function Header(props) {
   const location = useLocation();
 
   function updateCurrency(event) {
-    props.setCurrency(event.target.value);
+    if (event.target.value === "--Select--") {
+      return;
+    }
 
-    event.target.value !== "--Select--" &&
-      localStorage.setItem("currency", event.target.value);
+    props.setCurrency(event.target.value);
+    localStorage.setItem("currency", event.target.value);
   }
 
   return (
     <header>
       <div className="container">
         <span>Budget Planner</span>
-        <div>
+        <div className="currency-selector">
           <label htmlFor="currency">Currency:</label>
           <select
             name="currency"

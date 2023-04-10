@@ -29,7 +29,10 @@ function App() {
                   path="/"
                   element={<BudgetOverview currency={currency} />}
                 />
-                <Route path="/tracker" element={<ExpenseTracker />} />
+                <Route
+                  path="/tracker"
+                  element={<ExpenseTracker currency={currency} />}
+                />
               </Routes>
             </div>
           </main>

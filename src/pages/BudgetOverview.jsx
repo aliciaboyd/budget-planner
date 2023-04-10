@@ -22,6 +22,16 @@ function BudgetOverview(props) {
 
   const [total, setTotal] = useState({ income: 0, savings: 0, expenses: 0 });
 
+  function resetForm() {
+    setBudget({
+      income: [],
+      savings: [],
+      fixed: [],
+      variable: [],
+      other: [],
+    });
+  }
+
   function setTotalIncome() {
     setTotal((prevTotal) => {
       let tempTotal = 0;
@@ -204,12 +214,19 @@ function BudgetOverview(props) {
                 })}
             </div>
           </div>
-          <BudgetSummary
-            currency={props.currency}
-            incomeTotal={total.income}
-            savingsTotal={total.savings}
-            expensesTotal={total.expenses}
-          ></BudgetSummary>
+          <div>
+            <BudgetSummary
+              currency={props.currency}
+              incomeTotal={total.income}
+              savingsTotal={total.savings}
+              expensesTotal={total.expenses}
+            />
+            <div className="overview-options">
+              <button className="secondary-btn" onClick={resetForm}>
+                Clear All Fields
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </main>
