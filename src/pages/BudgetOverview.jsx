@@ -1,15 +1,28 @@
 import BudgetSummary from "../components/BudgetSummary";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import InputGroup from "../components/InputGroup";
 
 function BudgetOverview(props) {
-  const [budget, setBudget] = useState({
-    income: [],
-    savings: [],
-    fixed: [],
-    variable: [],
-    other: [],
-  });
+  if (localStorage.getItem("budget") === null) {
+    localStorage.setItem(
+      "budget",
+      JSON.stringify({
+        income: [],
+        savings: [],
+        fixed: [],
+        variable: [],
+        other: [],
+      })
+    );
+  }
+
+  const [budget, setBudget] = useState(
+    JSON.parse(localStorage.getItem("budget"))
+  );
+
+  useEffect(() => {
+    localStorage.setItem("budget", JSON.stringify(budget));
+  }, [budget]);
 
   function addItem(newItem, category) {
     setBudget((prevBudget) => {
@@ -20,7 +33,15 @@ function BudgetOverview(props) {
   }
 
   function removeItem(itemId, category) {
-    console.log(itemId);
+    setBudget((prevBudget) => {
+      let newCategory = prevBudget[category].filter(
+        (item) => item.id !== itemId
+      );
+      return {
+        ...prevBudget,
+        [category]: newCategory,
+      };
+    });
   }
 
   return (
@@ -125,7 +146,7 @@ function BudgetOverview(props) {
               <h3>Other Expenses</h3>
               <InputGroup category={"other"} addItem={addItem} />
               {budget.other.length > 0 &&
-                budget.income.map((item) => {
+                budget.other.map((item) => {
                   return (
                     <div key={item.id} className="row-container">
                       <p>{item.category}</p>
