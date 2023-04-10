@@ -25,7 +25,10 @@ function App() {
           <main className="content-body">
             <div className="container">
               <Routes>
-                <Route path="/" element={<BudgetOverview />} />
+                <Route
+                  path="/"
+                  element={<BudgetOverview currency={currency} />}
+                />
                 <Route path="/tracker" element={<ExpenseTracker />} />
               </Routes>
             </div>

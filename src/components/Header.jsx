@@ -22,10 +22,8 @@ function Header(props) {
             onChange={(e) => updateCurrency(e)}
           >
             <option>--Select--</option>
-            <option value="$">USD</option>
-            <option value="$">CAD</option>
-            <option value="$">AUD</option>
-            <option value="€">EUR</option>
+            <option value="$">DOLLAR</option>
+            <option value="€">EURO</option>
           </select>
         </div>
       </div>
