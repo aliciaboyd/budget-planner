@@ -2,7 +2,7 @@
 
 Budget planner and expense tracker application. Plan expenses with the budget overview page and track your monthly expenses using the expense tracker.
 
-Live demo: [monthly-budgettracker.netlify.app](monthly-budgettracker.netlify.app)
+Live demo: [monthly-budgettracker.netlify.app](https://monthly-budgettracker.netlify.app/)
 
 ![Concept design of budget planner app](https://github.com/aliciaboyd/budget-planner/blob/main/preview.png?raw=true)
 
